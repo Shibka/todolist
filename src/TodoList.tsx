@@ -2,7 +2,8 @@ import React from "react";
 
 
 const TodoList = () => {
-    return <div className="App">
+    return (
+        <div className="App">
         <div className='todolist'>
             <h3>What to learn</h3>
             <div>
@@ -20,7 +21,7 @@ const TodoList = () => {
                 <button>Completed</button>
             </div>
         </div>
-    </div>
+    </div>)
 
 }
 
