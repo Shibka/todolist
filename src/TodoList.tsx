@@ -1,11 +1,11 @@
-import React from "react";
+import React, {FC} from "react";
 
 type TodoListPropsType = {
     title: string
 }
 
 
-const TodoList = (props: TodoListPropsType) => {
+const TodoList: FC<TodoListPropsType> = (props: TodoListPropsType) => {
     console.log(props)
     return (
         <div className="App">
