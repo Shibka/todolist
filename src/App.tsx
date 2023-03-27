@@ -4,7 +4,7 @@ import './App.css';
 function App() {
     return (
         <div className="App">
-            <div>
+            <div className='todolist'>
                 <h3>What to learn</h3>
                 <div>
                     <input/>

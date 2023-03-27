@@ -1,8 +1,15 @@
 .App {
-  padding: 30px;
-  display: flex;
+    padding: 30px;
+    display: flex;
 }
 
 .App > div {
-  margin-right: 50px;
+    margin-right: 50px;
+}
+
+.todolist {
+    border: 2px solid teal;
+    background-color: darkolivegreen;
+    border-radius: 5px;
+    padding: 15px;
 }
