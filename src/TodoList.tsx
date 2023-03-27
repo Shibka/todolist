@@ -1,11 +1,16 @@
 import React from "react";
 
+type TodoListPropsType = {
+    title: string
+}
 
-const TodoList = () => {
+
+const TodoList = (props: TodoListPropsType) => {
+    console.log(props)
     return (
         <div className="App">
         <div className='todolist'>
-            <h3>What to learn</h3>
+            <h3>{props.title}</h3>
             <div>
                 <input/>
                 <button>+</button>
