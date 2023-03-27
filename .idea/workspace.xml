@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="198f9d50-9918-4a51-a160-70f36d7ef59c" name="Changes" comment="first">
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../ReactJs/my-app" beforeDir="false" afterPath="$PROJECT_DIR$/../../ReactJs/my-app" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -63,7 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1679915636872</updated>
       <workItem from="1679915638332" duration="99000" />
-      <workItem from="1679931427806" duration="1395000" />
+      <workItem from="1679931427806" duration="1463000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1679932569315</created>
