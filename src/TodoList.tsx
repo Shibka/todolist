@@ -1,9 +1,6 @@
-import React, {FC} from "react";
+import React from "react";
 
-type TodoListPropsType = {
-    title: string
-    tasks: TaskType[]
-}
+
 
 export type TaskType = {
     id: number,
@@ -12,20 +9,26 @@ export type TaskType = {
 }
 
 
-const TodoList: FC<TodoListPropsType> = (props: TodoListPropsType) => {
-    console.log(props)
+
+type PropsType = {
+    title: string,
+    tasks: Array<TaskType>
+
+}
+
+
+export function TodoList(props: PropsType) {
     return (
-        <div className="App">
-        <div className='todolist'>
+        <div>
             <h3>{props.title}</h3>
             <div>
                 <input/>
                 <button>+</button>
             </div>
             <ul>
-                <li><input type="checkbox" checked={props.tasks[0].isDone}/> <span>{props.tasks[0].title}</span></li>
-                <li><input type="checkbox" checked={props.tasks[1].isDone}/> <span>{props.tasks[1].title}</span></li>
-                <li><input type="checkbox" checked={props.tasks[2].isDone}/> <span>{props.tasks[2].title}</span></li>
+                <li><input type="checkbox" checked={props.tasks[0].isDone}/><span>{props.tasks[0].title}</span></li>
+                <li><input type="checkbox" checked={props.tasks[1].isDone}/><span>{props.tasks[1].title}</span></li>
+                <li><input type="checkbox" checked={props.tasks[2].isDone}/><span>{props.tasks[2].title}</span></li>
             </ul>
             <div>
                 <button>All</button>
@@ -33,8 +36,5 @@ const TodoList: FC<TodoListPropsType> = (props: TodoListPropsType) => {
                 <button>Completed</button>
             </div>
         </div>
-    </div>)
-
+    )
 }
-
-export default TodoList

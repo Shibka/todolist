@@ -1,34 +1,30 @@
 import React from 'react';
 import './App.css';
-import TodoList, {TaskType} from "./TodoList";
+import {TaskType, TodoList} from "./TodoList";
+
 
 function App() {
-    const todolistTitle_1: string = 'What to learn'
-    const todolistTitle_2: string = 'What to buy'
 
-    const task_1: Array<TaskType> = [
-        {id: 1, title: "HTML&CSS", isDone: true},
-        {id: 2, title: 'JS/ES6&TS', isDone: true},
-        {id: 3, title: 'REACT/REDUX', isDone: true}
+    let tasks1 = [
+        {id: 1, title: "CSS", isDone: true},
+        {id: 2, title: "JS", isDone: true},
+        {id: 3, title: "React", isDone: false}
     ]
-    const task_2: Array<TaskType> = [
-        {id: 4, title: "BREAD", isDone: true},
-        {id: 5, title: 'WATER', isDone: true},
-        {id: 6, title: 'SALT', isDone: false}
+    let tasks2: Array<TaskType> = [
+        {id: 1, title: "Terminator", isDone: true},
+        {id: 2, title: "XXX", isDone: false},
+        {id: 3, title: "Jentlments of fortune", isDone: true}
     ]
+
+
     return (
-        <div className="App">
-            <TodoList
-                title={todolistTitle_1}
-                tasks={task_1}
-            />
-            <TodoList
-                title={todolistTitle_2}
-                tasks={task_2}
-            />
-        </div>
+        <div className='App'>
+            <TodoList title='What to learn' tasks={tasks1}/>
+            <TodoList title='Movies' tasks={tasks2}/>
 
+        </div>
     );
 }
+
 
 export default App;
