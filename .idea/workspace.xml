@@ -24,6 +24,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2Nawjao3USnosS3a9GE41f0whl3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,7 +40,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
-    "settings.editor.selected.configurable": "preferences.general",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
     "ts.external.directory.path": "/Users/alex/IT/todolist/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -81,6 +82,8 @@
       <workItem from="1680262181776" duration="739000" />
       <workItem from="1680358912381" duration="5504000" />
       <workItem from="1680525431837" duration="98000" />
+      <workItem from="1680526200195" duration="9000" />
+      <workItem from="1680531045112" duration="74000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1679932569315</created>
@@ -187,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680525474793</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="TodoList isDone">
+      <created>1680526204044</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680526204044</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +226,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
     <MESSAGE value="first" />
     <MESSAGE value="Todo" />
     <MESSAGE value="TodoList export" />
