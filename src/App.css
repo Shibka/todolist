@@ -9,7 +9,49 @@
 
 .todolist {
     border: 2px solid teal;
-    background-color: darkolivegreen;
+    background-color: darkseagreen;
     border-radius: 5px;
     padding: 15px;
+}
+
+.task {
+    font-weight: bold;
+}
+.task-isDone{
+    font-weight: normal;
+    text-decoration: line-through;
+}
+.filter-btn{
+    border-radius: 3px;
+    padding: 3px 10px;
+    border: none;
+}
+.filter-btn-active{
+    background-color: darkred;
+    color: white;
+    border-color: darkred;
+    border-radius: 3px;
+    padding: 3px 10px;
+    border: none;
+}
+.filter-btn-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+li{
+    display: flex;
+    justify-content: space-between;
+    padding: 2px 0;
+}
+h3 {
+    text-align: center;
+}
+.input-error{
+    border: 2px solid red;
+    outline: none;
 }
