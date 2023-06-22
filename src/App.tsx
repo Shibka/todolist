@@ -6,7 +6,7 @@ import {v1} from "uuid";
 export type FilterValuesType = 'all' | 'active' | 'completed'
 
 
-type TodolistType ={
+type TodolistType = {
     id: string,
     title: string,
     filter: FilterValuesType,
@@ -18,7 +18,8 @@ type TasksStateType = {
 }
 
 type TodoListStateType = Array<TodolistType>
-function App(): JSX.Element  {
+
+function App(): JSX.Element {
 
     const todoListId_1 = v1();
     const todoListId_2 = v1()
@@ -35,24 +36,15 @@ function App(): JSX.Element  {
             {id: v1(), title: "REACT & REDUX", isDone: false},
         ],
         [todoListId_2]: [
-        {id: v1(), title: "MILK", isDone: true},
-        {id: v1(), title: "BREAD", isDone: true},
-        {id: v1(), title: "MEAT", isDone: false}
-    ]
+            {id: v1(), title: "MILK", isDone: true},
+            {id: v1(), title: "BREAD", isDone: true},
+            {id: v1(), title: "MEAT", isDone: false}
+        ]
     })
 
 
-
-
-
-
-
-
-
-
-
 //BLL:
-
+//Todolist 1 неделя
     // const todoListTitle: string = 'What to learn'
     // const [tasks, setTasks] = useState([
     //     {id: v1(), title: "CSS", isDone: true},
@@ -61,32 +53,66 @@ function App(): JSX.Element  {
     // ])
 
 
-    const removeTask = (taskId: string, todoListId:string) => {
-        const tasksForUpdate = tasks[todoListId]
-        const updatedTasks = tasksForUpdate.filter(t=> t.id !== taskId)
+    const removeTask = (taskId: string, todoListId: string) => {
+        //Первый способ
+        // const tasksForUpdate = tasks[todoListId]
+        // const updatedTasks = tasksForUpdate.filter(t => t.id !== taskId)
+        // const copyTasks = {...tasks}
+        // copyTasks[todoListId] = updatedTasks
+        // setTasks(copyTasks)
 
-        //
+        //Второй способ
+        setTasks({...tasks, [todoListId]: tasks[todoListId].filter(t => t.id !== taskId)})
+
+        //Todolist 1 неделя
         // const updatedTasks = tasks.filter(t => t.id !==taskId)
         // setTasks(updatedTasks)
     }
-    const addTask = (title: string) => {
+    const addTask = (title: string, todoListId: string) => {
         const newTask: TaskType = {
             id: v1(),
             title: title,
             isDone: false
         }
-        setTasks([newTask, ...tasks])
+        //Первый способ
+        // const tasksForUpdate: Array<TaskType>  = tasks[todoListId]
+        // const updatedTasks = [newTask, ...tasksForUpdate]
+        // const copyTasks = {...tasks}
+        // copyTasks[todoListId] = updatedTasks
+        // setTasks(copyTasks)
+
+        //Второй способ
+        setTasks({...tasks, [todoListId]: [newTask, ...tasks[todoListId]]})
     }
-    const changeTaskStatus = (taskId: string, newIsDoneValue: boolean) =>{
-        setTasks(tasks.map(t => t.id === taskId ? {...t, isDone: newIsDoneValue} : t))
+    const changeTaskStatus = (taskId: string, newIsDone: boolean, todoListId: string) => {
+        //Первый способ
+        // const tasksForUpdate: Array<TaskType> = tasks[todoListId]
+        // const updatedTasks = tasksForUpdate.map(t => t.id === taskId ? {...t, isDone: newIsDone} : t)
+        // const copyTasks = {...tasks}
+        // copyTasks[todoListId] = updatedTasks
+        // setTasks(copyTasks)
+
+        //Второй способ
+        setTasks({...tasks, [todoListId]: tasks[todoListId].map(t => t.id === taskId ? {...t, isDone: newIsDone} : t)})
+
+        //Todolist 1 неделя
+        // setTasks(tasks.map(t => t.id === taskId ? {...t, isDone: newIsDoneValue} : t))
     }
 
-
+    //Todolist 1 неделя
     // const [filter, setFilter] = useState<FilterValuesType>( 'all')
 
-    const changeFilter = (nextFilter: FilterValuesType) => {
-        setFilter(nextFilter)
+    const changeTodoListFilter = (filter: FilterValuesType, todoListId: string) => {
+        setTodoList(todoLists.map(tl => tl.id === todoListId ? {...tl, filter: filter} : tl))
     }
+
+
+    const removeTodoList = (todoListId: string) => {
+        setTodoList(todoLists.filter(t => t.id !== todoListId))
+        delete tasks[todoListId]
+    }
+
+
     const getTasksForMe = (tasksList: Array<TaskType>, filterValue: FilterValuesType) => {
 
         switch (filterValue) {
@@ -112,7 +138,7 @@ function App(): JSX.Element  {
                 removeTask={removeTask}
                 changeFilter={changeFilter}
                 changeTaskStatus={changeTaskStatus}
-                />
+            />
         </div>
     );
 }
