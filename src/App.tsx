@@ -154,7 +154,6 @@ const todoListsComponents = todoLists.map(tl => {
     //     }
     // }
     // const tasksWhatIWantToSee = getTasksForMe(tasks, filter)
-
     return (
         <div className='App'>
             {todoListsComponents}

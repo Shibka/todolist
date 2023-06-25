@@ -15,7 +15,7 @@ type TodolistPropsType = {
     filter: FilterValuesType
 
     removeTask: (taskId: string, todoListId: string) => void
-    addTask: (title: string, todoListId: string)  => void
+    addTask: (title: string, todoListId: string) => void
     changeTaskStatus: (taskId: string, isDone: boolean, todoListId: string) => void
 
     changeTodoListFilter: (nextFilter: FilterValuesType, todoListId: string) => void
@@ -38,11 +38,11 @@ export function TodoList(props: TodolistPropsType) {
     const setTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
         error && setError(false)
         setTitle(e.currentTarget.value)
-        }
+    }
     const addTaskHandler = () => {
         const trimmedTitle = title.trim()
         if (trimmedTitle) {
-            props.addTask(trimmedTitle)
+            props.addTask(trimmedTitle, props.todoListId)
         } else {
             setError(true)
         }
@@ -51,13 +51,13 @@ export function TodoList(props: TodolistPropsType) {
 
 
     const tasksListItems: Array<JSX.Element> = props.tasks.map((task: TaskType): JSX.Element => {
-        const removeTask = () => props.removeTask(task.id)
+        const removeTask = () => props.removeTask(task.id, props.todoListId)
         const changeTaskStatus = (e: ChangeEvent<HTMLInputElement>) => {
-            props.changeTaskStatus(task.id, e.currentTarget.checked)
+            props.changeTaskStatus(task.id, e.currentTarget.checked, props.todoListId)
         }
         const taskClasses = task.isDone ? 'task-isDone' : 'task'
         return (
-            <li>
+            <li key={task.id}>
                 <div>
                     <input type="checkbox" checked={task.isDone}
                            onChange={changeTaskStatus}/>
@@ -68,6 +68,8 @@ export function TodoList(props: TodolistPropsType) {
 
         )
     })
+
+
     const titleMaxLenght = 25
     const isTitleLengthTooLong: boolean = title.length > titleMaxLenght
     const isAddBtnDisabled: boolean = !title.length || title.length > titleMaxLenght
@@ -78,12 +80,18 @@ export function TodoList(props: TodolistPropsType) {
         ? <div style={{color: 'darkred'}}>Title is required!</div>
         : null
 
-    const handlerCreator = (filter: FilterValuesType) => () => props.changeFilter(filter)
+    const handlerCreator = (filter: FilterValuesType) => () => props.changeTodoListFilter(filter, props.todoListId)
+
+    const removeTodoList = () =>  props.removeTodoList(props.todoListId)
+
     const addTaskOnKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && !isAddBtnDisabled && addTaskHandler()
 
     return (
+
         <div className='todolist'>
-            <h3>{props.title}</h3>
+            <h3>{props.title}
+                <button onClick={removeTodoList}>x</button>
+            </h3>
             <div>
                 <input
                     placeholder='Please, enter title'
@@ -103,18 +111,21 @@ export function TodoList(props: TodolistPropsType) {
                 {/*{userMessage}*/}
             </div>
             <ul>
-                {tasksListItems}
+               {tasksListItems}
             </ul>
             <div className={'filter-btn-wrapper'}>
                 <button
                     className={props.filter === 'all' ? 'filter-btn filter-btn-active' : 'filter-btn'}
-                    onClick={handlerCreator('all')}>All
+                    onClick={handlerCreator('all')}
+                >All
                 </button>
                 <button className={props.filter === 'active' ? 'filter-btn filter-btn-active' : 'filter-btn'}
-                        onClick={handlerCreator('active')}>Active
+                        onClick={handlerCreator('active')}
+                >Active
                 </button>
                 <button className={props.filter === 'completed' ? 'filter-btn filter-btn-active' : 'filter-btn'}
-                        onClick={handlerCreator('completed')}>Completed
+                        onClick={handlerCreator('completed')}
+                >Completed
                 </button>
             </div>
         </div>
