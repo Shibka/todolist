@@ -9,13 +9,17 @@ export type TaskType = {
 
 
 type TodolistPropsType = {
+    todoListId: string
     title: string,
     tasks: TaskType[]
     filter: FilterValuesType
-    removeTask: (taskId: string) => void
-    addTask: (title: string) => void
-    changeFilter: (nextFilter: FilterValuesType) => void
-    changeTaskStatus: (taskId: string, isDone: boolean) => void
+
+    removeTask: (taskId: string, todoListId: string) => void
+    addTask: (title: string, todoListId: string)  => void
+    changeTaskStatus: (taskId: string, isDone: boolean, todoListId: string) => void
+
+    changeTodoListFilter: (nextFilter: FilterValuesType, todoListId: string) => void
+    removeTodoList: (todoListId: string) => void
 }
 
 

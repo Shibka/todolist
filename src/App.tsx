@@ -105,16 +105,12 @@ function App(): JSX.Element {
     const changeTodoListFilter = (filter: FilterValuesType, todoListId: string) => {
         setTodoList(todoLists.map(tl => tl.id === todoListId ? {...tl, filter: filter} : tl))
     }
-
-
     const removeTodoList = (todoListId: string) => {
         setTodoList(todoLists.filter(t => t.id !== todoListId))
         delete tasks[todoListId]
     }
 
-
-    const getTasksForMe = (tasksList: Array<TaskType>, filterValue: FilterValuesType) => {
-
+    const getTasksForMe = (tasks: Array<TaskType>, filterValue: FilterValuesType) => {
         switch (filterValue) {
             case 'active':
                 return tasks.filter(t => !t.isDone)
@@ -125,20 +121,56 @@ function App(): JSX.Element {
         }
     }
 
+const todoListsComponents = todoLists.map(tl => {
+    const filteredTasks = getTasksForMe(tasks[tl.id],tl.filter)
+    return (
+        <TodoList
+            key ={tl.id}
+            filter={tl.filter}
+            title={tl.title}
+            todoListId={tl.id}
+            tasks={filteredTasks}
 
-    const tasksWhatIWantToSee = getTasksForMe(tasks, filter)
+            addTask={addTask}
+            removeTask={removeTask}
+            changeTaskStatus={changeTaskStatus}
+
+            changeTodoListFilter={changeTodoListFilter}
+            removeTodoList={removeTodoList}
+        />
+    )
+})
+
+// TodoList 1st week
+    // const getTasksForMe = (tasksList: Array<TaskType>, filterValue: FilterValuesType) => {
+    //
+    //     switch (filterValue) {
+    //         case 'active':
+    //             return tasks.filter(t => !t.isDone)
+    //         case 'completed':
+    //             return tasks.filter(t => t.isDone)
+    //         default:
+    //             return tasks
+    //     }
+    // }
+    // const tasksWhatIWantToSee = getTasksForMe(tasks, filter)
 
     return (
         <div className='App'>
-            <TodoList
-                filter={filter}
-                title={todoListTitle}
-                tasks={tasksWhatIWantToSee}
-                addTask={addTask}
-                removeTask={removeTask}
-                changeFilter={changeFilter}
-                changeTaskStatus={changeTaskStatus}
-            />
+            {todoListsComponents}
+
+
+         {/*Todolist 1st week*/}
+            {/*<TodoList*/}
+            {/*    filter={filter}*/}
+            {/*    title={todoListTitle}*/}
+            {/*    tasks={tasksWhatIWantToSee}*/}
+            {/*    addTask={addTask}*/}
+            {/*    removeTask={removeTask}*/}
+            {/*    changeFilter={changeFilter}*/}
+            {/*    changeTaskStatus={changeTaskStatus}*/}
+            {/*/>*/}
+
         </div>
     );
 }
