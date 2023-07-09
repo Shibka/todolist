@@ -76,7 +76,7 @@ export function TodoList(props: TodolistPropsType) {
     const titleMaxLengthWarning = isTitleLengthTooLong
         ? <div style={{color: 'darkred'}}>Title is too long</div>
         : null
-    const userMessage = error
+    const userMessage = errorsdsd
         ? <div style={{color: 'darkred'}}>Title is required!</div>
         : null
 

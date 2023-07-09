@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="198f9d50-9918-4a51-a160-70f36d7ef59c" name="Changes" comment="TodoList isDone">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoList.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="198f9d50-9918-4a51-a160-70f36d7ef59c" name="Changes" comment="TodoList isDone" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -130,7 +126,8 @@
       <workItem from="1687464532603" duration="604000" />
       <workItem from="1687695615555" duration="2655000" />
       <workItem from="1687698971797" duration="8000" />
-      <workItem from="1687706481702" duration="4121000" />
+      <workItem from="1687706481702" duration="4566000" />
+      <workItem from="1688761843176" duration="482000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1679932569315</created>
@@ -307,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687698975742</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="TodoList isDone">
+      <created>1687711082703</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1687711082703</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
