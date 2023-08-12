@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="198f9d50-9918-4a51-a160-70f36d7ef59c" name="Changes" comment="TodoList isDone" />
+    <list default="true" id="198f9d50-9918-4a51-a160-70f36d7ef59c" name="Changes" comment="TodoList isDone">
+      <change afterPath="$PROJECT_DIR$/src/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoList.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,6 +133,19 @@
       <workItem from="1687698971797" duration="8000" />
       <workItem from="1687706481702" duration="4566000" />
       <workItem from="1688761843176" duration="482000" />
+      <workItem from="1688904686015" duration="35000" />
+      <workItem from="1688993266867" duration="5150000" />
+      <workItem from="1689342154324" duration="16000" />
+      <workItem from="1689347739471" duration="450000" />
+      <workItem from="1689612272708" duration="609000" />
+      <workItem from="1689763279889" duration="24000" />
+      <workItem from="1690896488041" duration="2493000" />
+      <workItem from="1691061109391" duration="88000" />
+      <workItem from="1691407774802" duration="708000" />
+      <workItem from="1691424409728" duration="596000" />
+      <workItem from="1691492683261" duration="602000" />
+      <workItem from="1691661879624" duration="1298000" />
+      <workItem from="1691850572833" duration="4788000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1679932569315</created>
@@ -311,7 +329,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687711082703</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="TodoList isDone">
+      <created>1688904695584</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1688904695584</updated>
+    </task>
+    <task id="LOCAL-00028" summary="TodoList isDone">
+      <created>1688904714084</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1688904714084</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -350,5 +382,17 @@
     <MESSAGE value="TodoList FC" />
     <MESSAGE value="TodoList isDone" />
     <option name="LAST_COMMIT_MESSAGE" value="TodoList isDone" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/App.tsx</url>
+          <line>131</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

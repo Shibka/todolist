@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {TaskType, TodoList} from "./TodoList";
 import {v1} from "uuid";
+import {AddItemForm} from "./AddItemForm";
 
 export type FilterValuesType = 'all' | 'active' | 'completed'
 
@@ -68,22 +69,7 @@ function App(): JSX.Element {
         // const updatedTasks = tasks.filter(t => t.id !==taskId)
         // setTasks(updatedTasks)
     }
-    const addTask = (title: string, todoListId: string) => {
-        const newTask: TaskType = {
-            id: v1(),
-            title: title,
-            isDone: false
-        }
-        //Первый способ
-        // const tasksForUpdate: Array<TaskType>  = tasks[todoListId]
-        // const updatedTasks = [newTask, ...tasksForUpdate]
-        // const copyTasks = {...tasks}
-        // copyTasks[todoListId] = updatedTasks
-        // setTasks(copyTasks)
 
-        //Второй способ
-        setTasks({...tasks, [todoListId]: [newTask, ...tasks[todoListId]]})
-    }
     const changeTaskStatus = (taskId: string, newIsDone: boolean, todoListId: string) => {
         //Первый способ
         // const tasksForUpdate: Array<TaskType> = tasks[todoListId]
@@ -110,6 +96,28 @@ function App(): JSX.Element {
         delete tasks[todoListId]
     }
 
+    const addTask = (title: string, todoListId: string) => {
+        const newTask: TaskType = {
+            id: v1(),
+            title: title,
+            isDone: false
+        }
+        //Первый способ
+        // const tasksForUpdate: Array<TaskType>  = tasks[todoListId]
+        // const updatedTasks = [newTask, ...tasksForUpdate]
+        // const copyTasks = {...tasks}
+        // copyTasks[todoListId] = updatedTasks
+        // setTasks(copyTasks)
+
+        //Второй способ
+        setTasks({...tasks, [todoListId]: [newTask, ...tasks[todoListId]]})
+    }
+
+    const addTodolist = (title: string,) => {
+const todolistId = v1()
+    }
+
+
     const getTasksForMe = (tasks: Array<TaskType>, filterValue: FilterValuesType) => {
         switch (filterValue) {
             case 'active':
@@ -121,45 +129,33 @@ function App(): JSX.Element {
         }
     }
 
-const todoListsComponents = todoLists.map(tl => {
-    const filteredTasks = getTasksForMe(tasks[tl.id],tl.filter)
-    return (
-        <TodoList
-            key ={tl.id}
-            filter={tl.filter}
-            title={tl.title}
-            todoListId={tl.id}
-            tasks={filteredTasks}
+    const todoListsComponents = todoLists.map(tl => {
+        const filteredTasks = getTasksForMe(tasks[tl.id], tl.filter)
+        return (
+            <TodoList
+                key={tl.id}
+                filter={tl.filter}
+                title={tl.title}
+                todoListId={tl.id}
+                tasks={filteredTasks}
 
-            addTask={addTask}
-            removeTask={removeTask}
-            changeTaskStatus={changeTaskStatus}
+                addTask={addTask}
+                removeTask={removeTask}
+                changeTaskStatus={changeTaskStatus}
 
-            changeTodoListFilter={changeTodoListFilter}
-            removeTodoList={removeTodoList}
-        />
-    )
-})
-
-// TodoList 1st week
-    // const getTasksForMe = (tasksList: Array<TaskType>, filterValue: FilterValuesType) => {
-    //
-    //     switch (filterValue) {
-    //         case 'active':
-    //             return tasks.filter(t => !t.isDone)
-    //         case 'completed':
-    //             return tasks.filter(t => t.isDone)
-    //         default:
-    //             return tasks
-    //     }
-    // }
-    // const tasksWhatIWantToSee = getTasksForMe(tasks, filter)
+                changeTodoListFilter={changeTodoListFilter}
+                removeTodoList={removeTodoList}
+            />
+        )
+    })
     return (
         <div className='App'>
+            <AddItemForm callBack={addTodolist}
+            />
             {todoListsComponents}
 
 
-         {/*Todolist 1st week*/}
+            {/*Todolist 1st week*/}
             {/*<TodoList*/}
             {/*    filter={filter}*/}
             {/*    title={todoListTitle}*/}

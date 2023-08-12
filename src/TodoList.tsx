@@ -1,5 +1,6 @@
 import React, {ChangeEvent, ChangeEventHandler, useRef, KeyboardEvent, useState} from "react";
 import {FilterValuesType} from "./App";
+import {AddItemForm} from "./AddItemForm";
 
 export type TaskType = {
     id: string,
@@ -25,29 +26,23 @@ type TodolistPropsType = {
 
 export function TodoList(props: TodolistPropsType) {
 
-    const [title, setTitle] = useState<string>('')
-    const [error, setError] = useState<boolean>(false)
-    // const taskTitleInput = useRef<HTMLInputElement>(null)
-    // const setTitleHandler = () => {
-    //     if (taskTitleInput.current) {
-    //         props.addTask(taskTitleInput.current.value)
-    //         taskTitleInput.current.value = ''
-    //     }
-    // }
+    // const [title, setTitle] = useState<string>('')
+    // const [error, setError] = useState<boolean>(false)
 
-    const setTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        error && setError(false)
-        setTitle(e.currentTarget.value)
-    }
-    const addTaskHandler = () => {
-        const trimmedTitle = title.trim()
-        if (trimmedTitle) {
-            props.addTask(trimmedTitle, props.todoListId)
-        } else {
-            setError(true)
-        }
-        setTitle("")
-    }
+
+    // const setTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    //     error && setError(false)
+    //     setTitle(e.currentTarget.value)
+    // }
+    // const addTaskHandler = () => {
+    //     const trimmedTitle = title.trim()
+    //     if (trimmedTitle) {
+    //         props.addTask(trimmedTitle, props.todoListId)
+    //     } else {
+    //         setError(true)
+    //     }
+    //     setTitle("")
+    // }
 
 
     const tasksListItems: Array<JSX.Element> = props.tasks.map((task: TaskType): JSX.Element => {
@@ -70,46 +65,55 @@ export function TodoList(props: TodolistPropsType) {
     })
 
 
-    const titleMaxLenght = 25
-    const isTitleLengthTooLong: boolean = title.length > titleMaxLenght
-    const isAddBtnDisabled: boolean = !title.length || title.length > titleMaxLenght
-    const titleMaxLengthWarning = isTitleLengthTooLong
-        ? <div style={{color: 'darkred'}}>Title is too long</div>
-        : null
-    const userMessage = error
-        ? <div style={{color: 'darkred'}}>Title is required!</div>
-        : null
+    // const titleMaxLenght = 25
+    // const isTitleLengthTooLong: boolean = props.title.length > titleMaxLenght
+    // const isAddBtnDisabled: boolean = !props.title.length || props.title.length > titleMaxLenght
+    // const titleMaxLengthWarning = isTitleLengthTooLong
+    //     ? <div style={{color: 'darkred'}}>Title is too long</div>
+    //     : null
+    // const userMessage = error
+    //     ? <div style={{color: 'darkred'}}>Title is required!</div>
+    //     : null
 
     const handlerCreator = (filter: FilterValuesType) => () => props.changeTodoListFilter(filter, props.todoListId)
 
-    const removeTodoList = () =>  props.removeTodoList(props.todoListId)
+    const removeTodoList = () => props.removeTodoList(props.todoListId)
 
-    const addTaskOnKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && !isAddBtnDisabled && addTaskHandler()
+    // const addTaskOnKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+    // e.key === 'Enter' && !isAddBtnDisabled && addTaskHandler()
+/*}*/
 
+    const addTaskHandler =(title: string,) =>{
+        props.addTask(title,props.todoListId)
+    }
     return (
 
         <div className='todolist'>
             <h3>{props.title}
                 <button onClick={removeTodoList}>x</button>
             </h3>
-            <div>
-                <input
-                    placeholder='Please, enter title'
-                    value={title}
-                    onChange={setTitleHandler}
-                    //ref={taskTitleInput}
-                    onKeyDown={addTaskOnKeyPressHandler}
-                    className={error || isTitleLengthTooLong ? 'input-error' : undefined}
-                />
-                <button
-                    disabled={isAddBtnDisabled}
-                    //onClick={setTitleHandler}
-                    onClick={addTaskHandler}
-                >+
-                </button>
-                {titleMaxLengthWarning || userMessage}
-                {/*{userMessage}*/}
-            </div>
+            <AddItemForm callBack={addTaskHandler}
+                         />
+
+            {/*<div>*/}
+            {/*    <input*/}
+            {/*        placeholder='Please, enter title'*/}
+            {/*        value={title}*/}
+            {/*        onChange={setTitleHandler}*/}
+            {/*        //ref={taskTitleInput}*/}
+            {/*        onKeyDown={addTaskOnKeyPressHandler}*/}
+            {/*        className={error || isTitleLengthTooLong ? 'input-error' : undefined}*/}
+            {/*    />*/}
+            {/*    <button*/}
+            {/*        disabled={isAddBtnDisabled}*/}
+            {/*        //onClick={setTitleHandler}*/}
+            {/*        onClick={addTaskHandler}*/}
+            {/*    >+*/}
+            {/*    </button>*/}
+            {/*    {titleMaxLengthWarning || userMessage}*/}
+            {/*    /!*{userMessage}*!/*/}
+            {/*</div>*/}
+
             <ul>
                {tasksListItems}
             </ul>
