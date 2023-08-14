@@ -1,6 +1,7 @@
 import React, {ChangeEvent, ChangeEventHandler, useRef, KeyboardEvent, useState} from "react";
 import {FilterValuesType} from "./App";
 import {AddItemForm} from "./AddItemForm";
+import {EditableSpan} from "./EditableSpan";
 
 export type TaskType = {
     id: string,
@@ -21,42 +22,31 @@ type TodolistPropsType = {
 
     changeTodoListFilter: (nextFilter: FilterValuesType, todoListId: string) => void
     removeTodoList: (todoListId: string) => void
+    updateTask: (todolistId: string, taskId: string, newTitle: string)=> void
+    updateTodolist: (todolistId: string,title: string)=> void
 }
 
 
 export function TodoList(props: TodolistPropsType) {
 
-    // const [title, setTitle] = useState<string>('')
-    // const [error, setError] = useState<boolean>(false)
+    const updateTaskHandler =(taskId: string, newTitle:string)=>{
+        props.updateTask(props.todoListId, taskId, newTitle)
+    }
 
 
-    // const setTitleHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    //     error && setError(false)
-    //     setTitle(e.currentTarget.value)
-    // }
-    // const addTaskHandler = () => {
-    //     const trimmedTitle = title.trim()
-    //     if (trimmedTitle) {
-    //         props.addTask(trimmedTitle, props.todoListId)
-    //     } else {
-    //         setError(true)
-    //     }
-    //     setTitle("")
-    // }
-
-
-    const tasksListItems: Array<JSX.Element> = props.tasks.map((task: TaskType): JSX.Element => {
+    const tasksListItems = props.tasks.map((task: TaskType) => {
         const removeTask = () => props.removeTask(task.id, props.todoListId)
         const changeTaskStatus = (e: ChangeEvent<HTMLInputElement>) => {
             props.changeTaskStatus(task.id, e.currentTarget.checked, props.todoListId)
         }
+
         const taskClasses = task.isDone ? 'task-isDone' : 'task'
         return (
-            <li key={task.id}>
+            <li key={task.id} className={taskClasses}>
                 <div>
                     <input type="checkbox" checked={task.isDone}
                            onChange={changeTaskStatus}/>
-                    <span className={taskClasses}>{task.title}</span>
+                    <EditableSpan oldTitle={task.title} callBack={(newTitle)=>updateTaskHandler(task.id, newTitle)}/>
                     <button onClick={removeTask}>x</button>
                 </div>
             </li>
@@ -64,55 +54,22 @@ export function TodoList(props: TodolistPropsType) {
         )
     })
 
-
-    // const titleMaxLenght = 25
-    // const isTitleLengthTooLong: boolean = props.title.length > titleMaxLenght
-    // const isAddBtnDisabled: boolean = !props.title.length || props.title.length > titleMaxLenght
-    // const titleMaxLengthWarning = isTitleLengthTooLong
-    //     ? <div style={{color: 'darkred'}}>Title is too long</div>
-    //     : null
-    // const userMessage = error
-    //     ? <div style={{color: 'darkred'}}>Title is required!</div>
-    //     : null
-
     const handlerCreator = (filter: FilterValuesType) => () => props.changeTodoListFilter(filter, props.todoListId)
-
     const removeTodoList = () => props.removeTodoList(props.todoListId)
-
-    // const addTaskOnKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-    // e.key === 'Enter' && !isAddBtnDisabled && addTaskHandler()
-/*}*/
-
-    const addTaskHandler =(title: string,) =>{
+    const updateTodolistHandler =(newTitle: string) =>{
+        props.updateTodolist(props.todoListId, newTitle)
+    }
+    const addTaskHandler =(title: string) =>{
         props.addTask(title,props.todoListId)
     }
     return (
 
         <div className='todolist'>
-            <h3>{props.title}
+            <h3>
+                <EditableSpan oldTitle={props.title} callBack={updateTodolistHandler}/>
                 <button onClick={removeTodoList}>x</button>
             </h3>
-            <AddItemForm callBack={addTaskHandler}
-                         />
-
-            {/*<div>*/}
-            {/*    <input*/}
-            {/*        placeholder='Please, enter title'*/}
-            {/*        value={title}*/}
-            {/*        onChange={setTitleHandler}*/}
-            {/*        //ref={taskTitleInput}*/}
-            {/*        onKeyDown={addTaskOnKeyPressHandler}*/}
-            {/*        className={error || isTitleLengthTooLong ? 'input-error' : undefined}*/}
-            {/*    />*/}
-            {/*    <button*/}
-            {/*        disabled={isAddBtnDisabled}*/}
-            {/*        //onClick={setTitleHandler}*/}
-            {/*        onClick={addTaskHandler}*/}
-            {/*    >+*/}
-            {/*    </button>*/}
-            {/*    {titleMaxLengthWarning || userMessage}*/}
-            {/*    /!*{userMessage}*!/*/}
-            {/*</div>*/}
+            <AddItemForm callBack={addTaskHandler}/>
 
             <ul>
                {tasksListItems}

@@ -44,16 +44,6 @@ function App(): JSX.Element {
     })
 
 
-//BLL:
-//Todolist 1 неделя
-    // const todoListTitle: string = 'What to learn'
-    // const [tasks, setTasks] = useState([
-    //     {id: v1(), title: "CSS", isDone: true},
-    //     {id: v1(), title: "JS", isDone: true},
-    //     {id: v1(), title: "React", isDone: false},
-    // ])
-
-
     const removeTask = (taskId: string, todoListId: string) => {
         //Первый способ
         // const tasksForUpdate = tasks[todoListId]
@@ -85,9 +75,6 @@ function App(): JSX.Element {
         // setTasks(tasks.map(t => t.id === taskId ? {...t, isDone: newIsDoneValue} : t))
     }
 
-    //Todolist 1 неделя
-    // const [filter, setFilter] = useState<FilterValuesType>( 'all')
-
     const changeTodoListFilter = (filter: FilterValuesType, todoListId: string) => {
         setTodoList(todoLists.map(tl => tl.id === todoListId ? {...tl, filter: filter} : tl))
     }
@@ -95,7 +82,6 @@ function App(): JSX.Element {
         setTodoList(todoLists.filter(t => t.id !== todoListId))
         delete tasks[todoListId]
     }
-
     const addTask = (title: string, todoListId: string) => {
         const newTask: TaskType = {
             id: v1(),
@@ -112,12 +98,19 @@ function App(): JSX.Element {
         //Второй способ
         setTasks({...tasks, [todoListId]: [newTask, ...tasks[todoListId]]})
     }
-
-    const addTodolist = (title: string,) => {
-const todolistId = v1()
+    const addTodolist = (newTitle: string,) => {
+        const todolistId = v1()
+        let newTodo: TodolistType = {id: todolistId, title: newTitle, filter: 'all'}
+        setTodoList([newTodo, ...todoLists])
+        setTasks({...tasks, [todolistId]: []})
+    }
+    const updateTask = (todolistId: string, taskId: string, newTitle: string) => {
+        setTasks({...tasks, [todolistId]: tasks[todolistId].map(t => t.id === taskId ? {...t, title: newTitle} : t)})
     }
 
-
+    const updateTodolist = (todolistId: string, title: string) => {
+        setTodoList(todoLists.map(t => t.id === todolistId ? {...t, title} : t))
+    }
     const getTasksForMe = (tasks: Array<TaskType>, filterValue: FilterValuesType) => {
         switch (filterValue) {
             case 'active':
@@ -145,6 +138,9 @@ const todolistId = v1()
 
                 changeTodoListFilter={changeTodoListFilter}
                 removeTodoList={removeTodoList}
+
+                updateTask={updateTask}
+                updateTodolist={updateTodolist}
             />
         )
     })
@@ -153,19 +149,6 @@ const todolistId = v1()
             <AddItemForm callBack={addTodolist}
             />
             {todoListsComponents}
-
-
-            {/*Todolist 1st week*/}
-            {/*<TodoList*/}
-            {/*    filter={filter}*/}
-            {/*    title={todoListTitle}*/}
-            {/*    tasks={tasksWhatIWantToSee}*/}
-            {/*    addTask={addTask}*/}
-            {/*    removeTask={removeTask}*/}
-            {/*    changeFilter={changeFilter}*/}
-            {/*    changeTaskStatus={changeTaskStatus}*/}
-            {/*/>*/}
-
         </div>
     );
 }
