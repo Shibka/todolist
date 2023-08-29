@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="198f9d50-9918-4a51-a160-70f36d7ef59c" name="Changes" comment="TodoList isDone">
-      <change afterPath="$PROJECT_DIR$/src/EditableSpan.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +40,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/alex/IT/todolist&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -146,7 +149,25 @@
       <workItem from="1691492683261" duration="602000" />
       <workItem from="1691661879624" duration="1298000" />
       <workItem from="1691850572833" duration="4801000" />
-      <workItem from="1692008692968" duration="7058000" />
+      <workItem from="1692008692968" duration="7684000" />
+      <workItem from="1692043293065" duration="1766000" />
+      <workItem from="1692102445276" duration="232000" />
+      <workItem from="1692112336219" duration="20000" />
+      <workItem from="1692112427189" duration="9000" />
+      <workItem from="1692112470581" duration="1346000" />
+      <workItem from="1692122993254" duration="524000" />
+      <workItem from="1692642885638" duration="32000" />
+      <workItem from="1692642943990" duration="40000" />
+      <workItem from="1692643894297" duration="1893000" />
+      <workItem from="1692792296475" duration="159000" />
+      <workItem from="1692793999149" duration="288000" />
+      <workItem from="1692804001884" duration="598000" />
+      <workItem from="1692870150613" duration="1790000" />
+      <workItem from="1693146354884" duration="3000" />
+      <workItem from="1693225350702" duration="17000" />
+      <workItem from="1693225392045" duration="574000" />
+      <workItem from="1693234955926" duration="3241000" />
+      <workItem from="1693331011916" duration="4427000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1679932569315</created>
@@ -397,13 +418,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/App.tsx</url>
           <line>124</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/TodoList.tsx</url>
-          <line>48</line>
-          <properties lambdaOrdinal="-1" />
+          <line>52</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

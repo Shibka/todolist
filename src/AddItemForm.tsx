@@ -1,5 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-
+import Button from '@mui/material/Button';
+import {TextField} from "@mui/material";
 
 type PropsType = {
     callBack: (title: string)=> void
@@ -34,23 +35,38 @@ export const AddItemForm = (props: PropsType) => {
     const userMessage = error
         ? <div style={{color: 'darkred'}}>Title is required!</div>
         : null
-    const addTaskOnKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => e.key === 'Enter' && !isAddBtnDisabled && addTaskHandler()
+    const addTaskOnKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+            e.key === 'Enter' && !isAddBtnDisabled && addTaskHandler()
+    }
 
+    const buttonStyles = {
+            maxWidth: '39px',
+        maxHeight: '39px',
+        minWidth: '39px',
+        minHeight: '39px',
+        }
 
     return (
         <div>
-                <input
+                <TextField
+                    size='small'
+                    id="outlined-basic"
+                    label="Outlined"
+                    variant='outlined'
                     placeholder='Please, enter title'
                     value={title}
                     onChange={setTitleHandler}
                     onKeyDown={addTaskOnKeyPressHandler}
-                    className={error || isTitleLengthTooLong ? 'input-error' : undefined}
+                    error={error}
                 />
-                <button
+                <Button
+                    style={buttonStyles}
+                    size='small'
+                    variant='contained'
                     disabled={isAddBtnDisabled}
                     onClick={addTaskHandler}
                 >+
-                </button>
+                </Button>
                 {titleMaxLengthWarning || userMessage}
         </div>
     );
