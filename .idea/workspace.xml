@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="198f9d50-9918-4a51-a160-70f36d7ef59c" name="Changes" comment="TodoList isDone">
-      <change afterPath="$PROJECT_DIR$/src/ButtonAppBar.tsx" afterDir="false" />
+    <list default="true" id="198f9d50-9918-4a51-a160-70f36d7ef59c" name="Changes" comment="Finished MaterialUi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddItemForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +163,7 @@
       <workItem from="1693225392045" duration="574000" />
       <workItem from="1693234955926" duration="3241000" />
       <workItem from="1693331011916" duration="4454000" />
-      <workItem from="1693387457686" duration="6373000" />
+      <workItem from="1693387457686" duration="6873000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1679932569315</created>
@@ -372,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691857445876</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Finished MaterialUi">
+      <created>1693395690951</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1693395690951</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +413,8 @@
     <MESSAGE value="TodoListTitle" />
     <MESSAGE value="TodoList FC" />
     <MESSAGE value="TodoList isDone" />
-    <option name="LAST_COMMIT_MESSAGE" value="TodoList isDone" />
+    <MESSAGE value="Finished MaterialUi" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished MaterialUi" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
