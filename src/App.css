@@ -1,54 +1,54 @@
 .App {
-    padding: 30px;
-    display: flex;
+    /*padding: 30px;*/
+    /*display: flex;*/
 }
 
-.App > div {
-    margin-right: 30px;
-}
+/*.App > div {*/
+/*    margin-right: 30px;*/
+/*}*/
 
-.todolist {
-    border-radius: 5px;
-    padding: 15px;
-}
+/*.todolist {*/
+/*    border-radius: 5px;*/
+/*    padding: 15px;*/
+/*}*/
 
-.task {
-    font-weight: bold;
-}
-.task-isDone{
-    font-weight: normal;
-    text-decoration: line-through;
-}
-.filter-btn{
-    border-radius: 3px;
-    padding: 3px 10px;
-    border: none;
-}
-.filter-btn-active{
-    background-color: darkslategray;
-    color: white;
-    border-radius: 3px;
-    padding: 3px 10px;
-    border: none;
-}
-.filter-btn-wrapper{
-    display: flex;
-    justify-content: space-between;
-}
+/*.task {*/
+/*    font-weight: bold;*/
+/*}*/
+/*.task-isDone{*/
+/*    font-weight: normal;*/
+/*    text-decoration: line-through;*/
+/*}*/
+/*.filter-btn{*/
+/*    border-radius: 3px;*/
+/*    padding: 3px 10px;*/
+/*    border: none;*/
+/*}*/
+/*.filter-btn-active{*/
+/*    background-color: darkslategray;*/
+/*    color: white;*/
+/*    border-radius: 3px;*/
+/*    padding: 3px 10px;*/
+/*    border: none;*/
+/*}*/
+/*.filter-btn-wrapper{*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*}*/
 
-ul{
-    list-style: none;
-    padding: 0;
-}
-li{
-    display: flex;
-    justify-content: space-between;
-    padding: 2px 0;
-}
-h3 {
-    text-align: center;
-}
-.input-error{
-    border: 2px solid red;
-    outline: none;
-}
+/*ul{*/
+/*    list-style: none;*/
+/*    padding: 0;*/
+/*}*/
+/*li{*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    padding: 2px 0;*/
+/*}*/
+/*h3 {*/
+/*    text-align: center;*/
+/*}*/
+/*.input-error{*/
+/*    border: 2px solid red;*/
+/*    outline: red;*/
+/*}*/
