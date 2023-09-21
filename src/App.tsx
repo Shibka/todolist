@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useReducer, useState} from 'react';
 import './App.css';
 import {TaskType, TodoList} from "./TodoList";
 import {v1} from "uuid";
@@ -7,11 +7,18 @@ import {ButtonAppBar} from "./ButtonAppBar";
 import Container from "@mui/material/Container";
 import Grid from '@mui/material/Grid';
 import Paper from "@mui/material/Paper";
+import {
+    AddTodolistAC,
+    ChangeTodolistFilter,
+    RemoveTodolistAC,
+    todolistReducer,
+    UpdateTodolistAC
+} from "./state/todolist-reducer";
 
 export type FilterValuesType = 'all' | 'active' | 'completed'
 
 
-type TodolistType = {
+export type TodolistType = {
     id: string,
     title: string,
     filter: FilterValuesType,
@@ -22,14 +29,14 @@ type TasksStateType = {
     [todoListId: string]: Array<TaskType>
 }
 
-type TodoListStateType = Array<TodolistType>
+// export type TodoListStateType = Array<TodolistType>
 
 function App(): JSX.Element {
 
     const todoListId_1 = v1();
     const todoListId_2 = v1()
 
-    const [todoLists, setTodoList] = useState<TodoListStateType>([
+    const [todoLists, dispatchTodolist] = useReducer(todolistReducer, [
         {id: todoListId_1, title: 'What to learn', filter: 'all'},
         {id: todoListId_2, title: 'What to buy', filter: 'all'},
     ])
@@ -49,36 +56,21 @@ function App(): JSX.Element {
 
 
     const removeTask = (taskId: string, todoListId: string) => {
-        //Первый способ
-        // const tasksForUpdate = tasks[todoListId]
-        // const updatedTasks = tasksForUpdate.filter(t => t.id !== taskId)
-        // const copyTasks = {...tasks}
-        // copyTasks[todoListId] = updatedTasks
-        // setTasks(copyTasks)
 
-        //Второй способ
         setTasks({...tasks, [todoListId]: tasks[todoListId].filter(t => t.id !== taskId)})
     }
 
     const changeTaskStatus = (taskId: string, newIsDone: boolean, todoListId: string) => {
-        //Первый способ
-        // const tasksForUpdate: Array<TaskType> = tasks[todoListId]
-        // const updatedTasks = tasksForUpdate.map(t => t.id === taskId ? {...t, isDone: newIsDone} : t)
-        // const copyTasks = {...tasks}
-        // copyTasks[todoListId] = updatedTasks
-        // setTasks(copyTasks)
 
-        //Второй способ
         setTasks({...tasks, [todoListId]: tasks[todoListId].map(t => t.id === taskId ? {...t, isDone: newIsDone} : t)})
 
     }
 
-    const changeTodoListFilter = (filter: FilterValuesType, todoListId: string) => {
-        setTodoList(todoLists.map(tl => tl.id === todoListId ? {...tl, filter: filter} : tl))
+    const changeTodoListFilter = (filter: FilterValuesType, todolistId: string) => {
+        dispatchTodolist(ChangeTodolistFilter(filter, todolistId))
     }
     const removeTodoList = (todoListId: string) => {
-        setTodoList(todoLists.filter(t => t.id !== todoListId))
-        delete tasks[todoListId]
+        dispatchTodolist(RemoveTodolistAC(todoListId))
     }
     const addTask = (title: string, todoListId: string) => {
         const newTask: TaskType = {
@@ -86,28 +78,18 @@ function App(): JSX.Element {
             title: title,
             isDone: false
         }
-        //Первый способ
-        // const tasksForUpdate: Array<TaskType>  = tasks[todoListId]
-        // const updatedTasks = [newTask, ...tasksForUpdate]
-        // const copyTasks = {...tasks}
-        // copyTasks[todoListId] = updatedTasks
-        // setTasks(copyTasks)
-
-        //Второй способ
         setTasks({...tasks, [todoListId]: [newTask, ...tasks[todoListId]]})
     }
-    const addTodolist = (newTitle: string,) => {
-        const todolistId = v1()
-        let newTodo: TodolistType = {id: todolistId, title: newTitle, filter: 'all'}
-        setTodoList([newTodo, ...todoLists])
-        setTasks({...tasks, [todolistId]: []})
+    const addTodolist = (newTitle: string) => {
+        const newTodolistId = v1()
+        dispatchTodolist(AddTodolistAC(newTitle, newTodolistId))
     }
     const updateTask = (todolistId: string, taskId: string, newTitle: string) => {
         setTasks({...tasks, [todolistId]: tasks[todolistId].map(t => t.id === taskId ? {...t, title: newTitle} : t)})
     }
 
     const updateTodolist = (todolistId: string, title: string) => {
-        setTodoList(todoLists.map(t => t.id === todolistId ? {...t, title} : t))
+        dispatchTodolist(UpdateTodolistAC(todolistId, title))
     }
     const getTasksForMe = (tasks: Array<TaskType>, filterValue: FilterValuesType) => {
         switch (filterValue) {
@@ -125,23 +107,23 @@ function App(): JSX.Element {
         return (
             <Grid item>
                 <Paper elevation={3} style={{padding: '15px'}}>
-                <TodoList
-                    key={tl.id}
-                    filter={tl.filter}
-                    title={tl.title}
-                    todoListId={tl.id}
-                    tasks={filteredTasks}
+                    <TodoList
+                        key={tl.id}
+                        filter={tl.filter}
+                        title={tl.title}
+                        todoListId={tl.id}
+                        tasks={filteredTasks}
 
-                    addTask={addTask}
-                    removeTask={removeTask}
-                    changeTaskStatus={changeTaskStatus}
+                        addTask={addTask}
+                        removeTask={removeTask}
+                        changeTaskStatus={changeTaskStatus}
 
-                    changeTodoListFilter={changeTodoListFilter}
-                    removeTodoList={removeTodoList}
+                        changeTodoListFilter={changeTodoListFilter}
+                        removeTodoList={removeTodoList}
 
-                    updateTask={updateTask}
-                    updateTodolist={updateTodolist}
-                />
+                        updateTask={updateTask}
+                        updateTodolist={updateTodolist}
+                    />
                 </Paper>
             </Grid>
         )

@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="198f9d50-9918-4a51-a160-70f36d7ef59c" name="Changes" comment="Finished MaterialUi">
+      <change afterPath="$PROJECT_DIR$/src/state/todolist-reducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -167,7 +170,16 @@
       <workItem from="1693506700058" duration="2915000" />
       <workItem from="1693593642961" duration="427000" />
       <workItem from="1694021826014" duration="610000" />
-      <workItem from="1694099196674" duration="366000" />
+      <workItem from="1694099196674" duration="468000" />
+      <workItem from="1694182152077" duration="2600000" />
+      <workItem from="1694265825661" duration="208000" />
+      <workItem from="1694787956902" duration="53000" />
+      <workItem from="1694788126171" duration="15000" />
+      <workItem from="1694789393606" duration="694000" />
+      <workItem from="1695043841252" duration="109000" />
+      <workItem from="1695045190745" duration="608000" />
+      <workItem from="1695289664331" duration="854000" />
+      <workItem from="1695297364629" duration="2326000" />
     </task>
     <task id="LOCAL-00001" summary="first">
       <created>1679932569315</created>
@@ -386,7 +398,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693396177230</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Finished MaterialUi">
+      <created>1694099626920</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1694099626920</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,11 +449,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/App.tsx</url>
-          <line>122</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/TodoList.tsx</url>
           <line>52</line>
