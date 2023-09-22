@@ -25,11 +25,11 @@ export type TodolistType = {
 
 }
 
-type TasksStateType = {
+export type TasksStateType = {
     [todoListId: string]: Array<TaskType>
 }
 
-// export type TodoListStateType = Array<TodolistType>
+
 
 function App(): JSX.Element {
 
